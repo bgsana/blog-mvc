@@ -1,0 +1,16 @@
+Configurando o git
+git config --global user.name bgsana
+git config --global user.email bgs.ana08@gmail.com
+
+Listar os SDKs (versão)
+dotnet --list-sdks
+
+Help
+dotnet --h
+
+Criando um projeto MVC
+dotnet new mvc -o Bloguei
+
+Executar projeto
+cd Bloguei
+dotnet watch run
