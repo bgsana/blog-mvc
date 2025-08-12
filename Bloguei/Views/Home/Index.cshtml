@@ -1,8 +1,14 @@
-﻿@{
+﻿@model List<Postagem>
+@{
     ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">@ViewData["Mensagem"]</h1>
+    <h1 class="display-4">Bloguei</h1>
     <p>Bem-vindas ao melhor blog de todos os tempos!</p>
 </div>
+
+@foreach (Postagem postagem in Model){
+    <p>@postagem.Nome</p>
+    <p>@Html.Raw(postagem.Texto)</p>
+}
