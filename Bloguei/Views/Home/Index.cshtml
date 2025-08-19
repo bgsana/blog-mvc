@@ -3,31 +3,32 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bloguei</h1>
-    <p>Bem-vindas ao melhor blog de todos os tempos!</p>
+<div class="p-5 mb-4 rounded-3 text-white text-center" style="background-color: #fdd7e0">
+    <img src="/img/Bloguei.png" class="img-fluid rounded-start h-100 object-fit-cover">
+    <p class="fs-4">Bem-vindas ao melhor blog de todos os tempos!</p>
 </div>
 
-<div class="container">
+<div class="container pb-5">
     <div class="row row-cols-1 row-cols-sm-2 g-3">
         @foreach (Postagem postagem in Model)
         {
             <div class="col">
-                <div class="card">
-                    <div class="row g-0">
+                <div class="card h-100">
+                    <div class="row h-100 g-0">
                         <div class="col-md-4">
-                            <img src="@postagem.Foto" class="img-fluid rounded-start h-100" alt="@postagem.Nome">
+                            <img src="@postagem.Foto" class="img-fluid rounded-start h-100 object-fit-cover" alt="@postagem.Nome">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
+                                <button class="btn btn-sm mb-2" style="background-color: #fa80af; color: white;">@postagem.Categoria.Nome</button>
                                 <h5 class="card-title">@postagem.Nome</h5>
                                 <p class="card-text">@postagem.Descricao</p>
-                                <p class="card-text">
+                                <p class="card-text d-flex justify-content-between">
                                     <small class="text-body-secondary">
                                         Postado em: @postagem.DataPostagem.ToString("dd/MM/yyyy")
                                     </small>
+                                    <a asp-action="Postagem" asp-route-id="@postagem.Id" a>Ler Mais</a>
                                 </p>
-                                <a asp-action="Postagem"a>Ler Mais</a>
                             </div>
                         </div>
                     </div>
