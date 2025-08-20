@@ -10,12 +10,13 @@ public class HomeController : Controller
     // Cria um objeto chamado logger que é somente de leitura. 
     private readonly ILogger<HomeController> _logger;
     private List<Postagem> postagens;
+    private List<Categoria> categorias;
 
     // Método construtor: cria objeto na memória
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        List<Categoria> categorias = [
+        categorias = [
             new(){Id = 1, Nome = "Closet dos Sonhos"},
             new(){Id = 2, Nome = "Glow Up"},
             new(){Id = 3, Nome = "Corpo & Alma"},
@@ -137,6 +138,7 @@ public class HomeController : Controller
             .SingleOrDefault();
         if(postagem == null)
             return NotFound();
+        ViewData["Categorias"] = categorias;
         return View(postagem);
     }
 
